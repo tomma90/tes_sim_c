@@ -122,6 +122,7 @@ long double rungeKutta(long double x0, long double yJ0, long double yI0, long do
 
 		if (i%decimate==0)
 		{
+			long double x0mus = x0*1000000;
 			long double yTmK = yT*1000;
 			long double yImuA = yI*1000000;
 
@@ -131,8 +132,8 @@ long double rungeKutta(long double x0, long double yJ0, long double yI0, long do
        				fileT = fopen(fT, "a");
 				fileI = fopen(fI, "a");
 			
-				fprintf(fileT, "%Lf\t %Lf\n", x0, yTmK);
-				fprintf(fileI, "%Lf\t %Lf\n", x0, yImuA);
+				fprintf(fileT, "%Lf\t %Lf\n", x0mus, yTmK);
+				fprintf(fileI, "%Lf\t %Lf\n", x0mus, yImuA);
 
 				fclose(fileI);
 				fclose(fileT);

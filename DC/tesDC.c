@@ -104,10 +104,14 @@ long double rungeKutta(long double x0, long double yI0, long double yT0, long do
 		
 		if (i%decimate==0)
 		{
-			fprintf(fileT, "%Lf\t %Lf\n", x0, yT*1000);
-			fprintf(fileI, "%Lf\t %Lf\n", x0, yI*1000000);
+			long double x0mus = x0*1000000;
+			long double yTmK = yT*1000;
+			long double yImuA = yI*1000000;
+			
+			fprintf(fileT, "%Lf\t %Lf\n", x0mus, yTmK);
+			fprintf(fileI, "%Lf\t %Lf\n", x0mus, yImuA);
 
-			//printf("%Lf\t%Lf\t%Lf\n", x0, yTmK, yImuA);
+			//printf("%Lf\t%Lf\t%Lf\n", x0mus, yTmK, yImuA);
 		}
 
 		// Update next value of x 
